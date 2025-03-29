@@ -1,32 +1,35 @@
-# Nostr CLI App
+Nostr CLI App
 
-ノストのコマンドラインインターフェースアプリケーション。
+ノスターのコマンドラインインターフェースアプリケーション。
+機能
 
-## 機能
+    鍵ペアの生成と管理
+    テキストノートの送信
+    イベントフィードの表示
+    リレーの管理
+    TUIモードでの操作
+    「うぃビーム」効果音の再生
 
-- 鍵ペアの生成と管理
-- テキストノートの送信
-- イベントフィードの表示
-- リレーの管理
-- TUIモードでの操作
-- 「うぃビーム」効果音の再生
+インストール
+Bash
 
-## インストール
-
-
-git clone https://github.com/あなたのユーザー名/nostr-cli-app.git
+git clone https://github.com/tami1A84/nostr-cli-app.git
 cd nostr-cli-app
 cargo build --release
-Text Only
 
-## 使用方法
-
+使用方法
 鍵ペアの生成
+Bash
 
 cargo run -- generate-keys
+
 TUIモードで起動
+Bash
 
 cargo run -- tui
-「うぃビームだころせ」効果音を再生
+
+「うぃビーム」効果音を再生
+Bash
 
 cargo run -- uibeam
+
