@@ -1,33 +1,87 @@
-Nostr CLI App
+# Nostr CLI App
 
-ノスターのコマンドラインインターフェースアプリケーション
+- 鍵ペアの生成と管理
 
-機能
+- テキストノートの送信
 
-・鍵ペアの生成と管理
+- イベントフィードの表示
 
-・テキストノートの送信
+- リレーの管理
 
-・イベントフィードの表示
+- TUIモードでの操作
 
-・リレーの管理
+- 「ういビーム」効果音の再生
 
-・TUIモードでの操作
+# インストール
+```Bash
+git clone https://github.com/tami1A84/nostr-cli-app.git 
+cd nostr-cli-app 
+cargo build --release
+```
 
-・「うぃビーム」効果音の再生
+# 使用方法
+### 鍵ペアの生成
+```Bash
+cargo run -- generate-keys
+```
+
+### TUIモードで起動
+```Bash
+cargo run -- tui
+```
+
+# コマンド一覧
+
+### 新しい鍵ペアの生成
+```Bash
+cargo run -- generate-keys [--password <パスワード>]
+```
 
 
-インストール
+### 鍵情報の表示
+```Bash
+cargo run -- show-keys
+```
 
-    git clone https://github.com/tami1A84/nostr-cli-app.git
-    cd nostr-cli-app
-    cargo build --release
-    
-使用方法
 
-    cargo run -- generate-keys
-    
-TUIモードで起動
+### テキストノートの送信
+```Bash
+cargo run -- send-note <投稿内容>
+```
 
-    cargo run -- tui
 
+### イベントフィードの表示
+```Bash
+cargo run -- show-feed
+```
+
+
+
+### リレーの追加
+```Bash
+cargo run -- add-relay <リレーURL>
+```
+
+### リレーの削除
+```Bash
+cargo run -- remove-relay <リレーURL>
+```
+
+
+### リレー一覧の表示
+```Bash
+cargo run -- list-relays
+```
+
+
+
+### 「ういビーム」効果音の再生
+```Bash
+cargo run -- uibeam
+```
+
+
+### ターミナルUIモードでの起動
+```Bash
+cargo run -- tui
+```
