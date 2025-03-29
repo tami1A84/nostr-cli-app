@@ -32,4 +32,3 @@ cargo run -- tui
 Bash
 
 cargo run -- uibeam
-
