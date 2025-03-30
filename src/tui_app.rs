@@ -681,13 +681,13 @@ fn render_compose_mac_style(f: &mut Frame, app: &App, area: Rect) {
 
 
 
-// About画面を描画 - キー操作ガイド追加版（特定の行を削除）
+// About画面を描画 - シンプル版
 fn render_about_screen(f: &mut Frame, _app: &App) {
     let area = f.size();
 
-    // Aboutウィンドウのサイズ（コンテンツが増えるため高さを拡大）
+    // Aboutウィンドウのサイズ（コンテンツ量に合わせて調整）
     let about_width = 60;
-    let about_height = 25; // 高さを調整
+    let about_height = 15; // 高さを小さく調整
 
     // 画面中央に配置
     let about_x = (area.width.saturating_sub(about_width)) / 2;
@@ -726,7 +726,7 @@ fn render_about_screen(f: &mut Frame, _app: &App) {
     // コンテンツエリア
     let inner_area = about_block.inner(about_area);
 
-    // アプリ情報を表示
+    // アプリ情報を表示（キー操作ガイド削除）
     let about_text = vec![
         Line::from(vec![
             Span::raw("🙂 "),
@@ -747,26 +747,6 @@ fn render_about_screen(f: &mut Frame, _app: &App) {
             Style::default().fg(Color::Black)
         )),
         Line::from(""),
-        // キー操作ガイド追加
-        Line::from(Span::styled(
-            "【キー操作ガイド】",
-            Style::default().fg(Color::Black).add_modifier(Modifier::BOLD)
-        )),
-        Line::from(""),
-        Line::from(Span::styled("■ 共通", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("q: アプリケーション終了 / Tab: タブ切り替え", Style::default().fg(Color::Black))),
-        Line::from(""),
-        Line::from(Span::styled("■ 通常モード", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("i: 入力モード切替 / r: イベント更新 / a: About画面", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("s: 電卓表示 / Enter: イベント詳細表示", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("↑/↓: 移動 / Home/End: 先頭/末尾 / PageUp/Down: ページ移動", Style::default().fg(Color::Black))),
-        Line::from(""),
-        Line::from(Span::styled("■ 編集モード", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("Enter: 送信 / Esc: 通常モードに戻る / Backspace: 削除", Style::default().fg(Color::Black))),
-        Line::from(""),
-        Line::from(Span::styled("■ 詳細表示モード", Style::default().fg(Color::Black))),
-        Line::from(Span::styled("Esc: リストに戻る / ↑/↓: スクロール", Style::default().fg(Color::Black))),
-        Line::from(""),
         // チェッカーボードパターン（3行）
         Line::from("■ □ ■ □ ■ □ ■ □ ■ □"),
         Line::from("□ ■ □ ■ □ ■ □ ■ □ ■"),
@@ -784,7 +764,6 @@ fn render_about_screen(f: &mut Frame, _app: &App) {
 
     f.render_widget(about_paragraph, inner_area);
 }
-
 
 
 // 詳細表示
